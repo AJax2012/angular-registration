@@ -8,6 +8,7 @@
     <tr mdbTableCol *ngFor="let client of clients">
       <th scope="row">{{ client.firstName }}</th>
       <td>{{ client.lastName }}</td>
+      <td>{{ client.npiNumber }}</td>
       <td>{{ client.emailAddress }}</td>
       <td>{{ client.phoneNumber }}</td>
       <td>{{ client.businessAddress.city }}</td>

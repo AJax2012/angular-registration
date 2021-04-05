@@ -14,7 +14,15 @@ export class RegisteredListComponent implements OnInit {
   constructor(private registrationService: RegistrationService) {}
 
   ngOnInit(): void {
-    this.headElements = ['First', 'Last', 'Email', 'Phone', 'City', 'State'];
+    this.headElements = [
+      'First',
+      'Last',
+      'NPI Number',
+      'Email',
+      'Phone',
+      'City',
+      'State',
+    ];
     this.getClients();
   }
 

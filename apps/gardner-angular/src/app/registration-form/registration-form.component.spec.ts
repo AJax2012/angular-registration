@@ -63,6 +63,21 @@ describe('RegistrationFormComponent', () => {
     expect(errors['required']).toBeFalsy();
   });
 
+  it('npiNumber should be valid when not empty', () => {
+    const npiNumber = component.registrationForm.controls['npiNumber'];
+    expect(npiNumber.valid).toBeFalsy();
+
+    let errors = {};
+    errors = npiNumber.errors || {};
+    expect(errors['required']).toBeTruthy();
+
+    npiNumber.setValue('test');
+
+    errors = npiNumber.errors || {};
+    expect(npiNumber.valid).toBeTruthy();
+    expect(errors['required']).toBeFalsy();
+  });
+
   it('phoneNumber should be valid when not empty', () => {
     const phoneNumber = component.registrationForm.controls['phoneNumber'];
     expect(phoneNumber.valid).toBeFalsy();
@@ -171,6 +186,7 @@ describe('RegistrationFormComponent', () => {
   it('form should be invalid unless all requirements completed', () => {
     const firstName = component.registrationForm.controls['firstName'];
     const lastName = component.registrationForm.controls['lastName'];
+    const npiNumber = component.registrationForm.controls['npiNumber'];
     const phoneNumber = component.registrationForm.controls['phoneNumber'];
     const email = component.registrationForm.controls['email'];
     const streetAddress1 =
@@ -185,6 +201,9 @@ describe('RegistrationFormComponent', () => {
     expect(component.registrationForm.valid).toBeFalsy();
 
     lastName.setValue('test');
+    expect(component.registrationForm.valid).toBeFalsy();
+
+    npiNumber.setValue('test');
     expect(component.registrationForm.valid).toBeFalsy();
 
     phoneNumber.setValue('test');
@@ -209,6 +228,7 @@ describe('RegistrationFormComponent', () => {
   it('submit button should be disabled unless form is valid', () => {
     const firstName = component.registrationForm.controls['firstName'];
     const lastName = component.registrationForm.controls['lastName'];
+    const npiNumber = component.registrationForm.controls['npiNumber'];
     const phoneNumber = component.registrationForm.controls['phoneNumber'];
     const email = component.registrationForm.controls['email'];
     const streetAddress1 =
@@ -223,6 +243,7 @@ describe('RegistrationFormComponent', () => {
 
     firstName.setValue('test');
     lastName.setValue('test');
+    npiNumber.setValue('test');
     phoneNumber.setValue('test');
     email.setValue('test@test.com');
     streetAddress1.setValue('test');
@@ -245,6 +266,7 @@ describe('RegistrationFormComponent', () => {
     spyOn(registrationService, 'addRegistration');
     const firstName = component.registrationForm.controls['firstName'];
     const lastName = component.registrationForm.controls['lastName'];
+    const npiNumber = component.registrationForm.controls['npiNumber'];
     const phoneNumber = component.registrationForm.controls['phoneNumber'];
     const email = component.registrationForm.controls['email'];
     const streetAddress1 =
@@ -256,6 +278,7 @@ describe('RegistrationFormComponent', () => {
 
     firstName.setValue('test');
     lastName.setValue('test');
+    npiNumber.setValue('test');
     phoneNumber.setValue('test');
     email.setValue('test@test.com');
     streetAddress1.setValue('test');

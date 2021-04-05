@@ -24,6 +24,7 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationForm = this.formBuilder.group({
       firstName: this.formBuilder.control('', Validators.required),
       lastName: this.formBuilder.control('', Validators.required),
+      npiNumber: this.formBuilder.control('', Validators.required),
       phoneNumber: this.formBuilder.control('', Validators.required),
       email: this.formBuilder.control('', [
         Validators.required,
@@ -49,6 +50,7 @@ export class RegistrationFormComponent implements OnInit {
       lastName: this.lastName.value,
       phoneNumber: this.phoneNumber.value,
       emailAddress: this.email.value,
+      npiNumber: this.npiNumber.value,
       businessAddress: {
         streetAddress1: this.streetAddress1.value,
         streetAddress2: this.streetAddress2.value,
@@ -65,6 +67,10 @@ export class RegistrationFormComponent implements OnInit {
 
   get lastName() {
     return this.registrationForm.get('lastName');
+  }
+
+  get npiNumber() {
+    return this.registrationForm.get('npiNumber');
   }
 
   get phoneNumber() {
