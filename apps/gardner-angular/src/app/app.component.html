@@ -1,3 +1,23 @@
 <main>
-  <gardner-angular-registration-form></gardner-angular-registration-form>
+  <nav
+    ngbNav
+    [(activeId)]="activeId"
+    #nav="ngbNav"
+    [destroyOnHide]="false"
+    class="nav-tabs"
+  >
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>Form</a>
+      <ng-template ngbNavContent>
+        <gardner-angular-registration-form></gardner-angular-registration-form>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2" [destroyOnHide]="true">
+      <a ngbNavLink>Clients</a>
+      <ng-template ngbNavContent>
+        <gardner-angular-registered-list></gardner-angular-registered-list>
+      </ng-template>
+    </li>
+  </nav>
+  <div [ngbNavOutlet]="nav"></div>
 </main>

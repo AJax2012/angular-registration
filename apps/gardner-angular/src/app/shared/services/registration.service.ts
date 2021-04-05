@@ -14,4 +14,8 @@ export class RegistrationService {
     registration.id = uuidv4();
     this.currentlyRegistered.push(registration);
   }
+
+  getCurrentlyRegistered(): Registration[] {
+    return this.currentlyRegistered;
+  }
 }

@@ -1,0 +1,17 @@
+<table mdbTable striped="true" class="mt-4">
+  <thead>
+    <tr>
+      <th *ngFor="let head of headElements" scope="col">{{ head }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr mdbTableCol *ngFor="let client of clients">
+      <th scope="row">{{ client.firstName }}</th>
+      <td>{{ client.lastName }}</td>
+      <td>{{ client.emailAddress }}</td>
+      <td>{{ client.phoneNumber }}</td>
+      <td>{{ client.businessAddress.city }}</td>
+      <td>{{ client.businessAddress.state }}</td>
+    </tr>
+  </tbody>
+</table>

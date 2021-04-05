@@ -39,24 +39,12 @@ describe('RegistrationService', () => {
   it('should add to currentlyRegistered when addRegistration called', () => {
     expect(service.currentlyRegistered).toEqual([]);
     service.addRegistration(mockRegistration);
-    expect(service.currentlyRegistered).not.toEqual([]);
+    expect(service.currentlyRegistered).toEqual([mockRegistration]);
+  });
 
-    expect(service.currentlyRegistered[0].id).not.toBeNull();
-    expect(service.currentlyRegistered[0].firstName).toEqual('test');
-    expect(service.currentlyRegistered[0].lastName).toEqual('test');
-    expect(service.currentlyRegistered[0].phoneNumber).toEqual('5551231234');
-    expect(service.currentlyRegistered[0].emailAddress).toEqual(
-      'test@test.com'
-    );
-    expect(
-      service.currentlyRegistered[0].businessAddress.streetAddress1
-    ).toEqual('test');
-    expect(service.currentlyRegistered[0].businessAddress.city).toEqual('test');
-    expect(service.currentlyRegistered[0].businessAddress.state).toEqual(
-      'test'
-    );
-    expect(service.currentlyRegistered[0].businessAddress.postalCode).toEqual(
-      'test'
-    );
+  it('should get currentlyRegistered when getCurrentlyRegistered called', () => {
+    service.currentlyRegistered = mockRegistration;
+    const result = service.getCurrentlyRegistered();
+    expect(result).toEqual(mockRegistration);
   });
 });
